@@ -24,6 +24,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -88,10 +89,13 @@ public class DefaultCbrService implements CbrService {
 
         if(either.isRight()) return Either.right(either.getRight().get());
 
-        Valute valute = either.getLeft()
+        List<Valute> valutes = either.getLeft()
                 .get()
-                .getValutes()
-                .stream()
+                .getValutes();
+
+        if(valutes == null || valutes.size() <= 0) return Either.right(Error.builder().code(404).message("Response was empty.").build());
+
+        Valute valute = valutes.stream()
                 .filter(v -> StringUtils.equals(v.getCharCode(), code))
                 .findFirst()
                 .orElse(Valute

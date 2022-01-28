@@ -11,7 +11,7 @@ public class ModelConvertor {
     public Rate convertValuteModelToRateModel(Valute valute) {
         Rate rate = Rate
                 .builder()
-                .rate(valute.getValue())
+                .rate(valute.getCalculatedValue())
                 .code(valute.getCharCode())
                 .build();
         try {

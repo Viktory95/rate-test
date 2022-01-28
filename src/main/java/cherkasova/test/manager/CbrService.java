@@ -9,9 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public interface CbrService {
-    static final String CBR_DATE_PATTERN = "MM/dd/yyyy";
+    static final String CBR_DATE_PATTERN = "dd/MM/yyyy";
     static final SimpleDateFormat CBR_DATE_FORMAT = new SimpleDateFormat(CBR_DATE_PATTERN);
-    static final String XML_DATE_PATTERN = "MM.dd.yyyy";
+    static final String XML_DATE_PATTERN = "dd.MM.yyyy";
     static final SimpleDateFormat XML_DATE_FORMAT = new SimpleDateFormat(XML_DATE_PATTERN);
     static final String INPUT_OUTPUT_DATE_PATTERN = "yyyy-MM-dd";
     static final SimpleDateFormat INPUT_OUTPUT_DATE_FORMAT = new SimpleDateFormat(INPUT_OUTPUT_DATE_PATTERN);

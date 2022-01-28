@@ -46,10 +46,11 @@ public class RateController {
         }
 
         Either<Valute, Error> either = cbrService.getRateByCode(code, newDate);
-        if (either.isRight())
+        if (either.isRight()) {
             return ResponseEntity
                     .status(either.getRight().get().getCode())
                     .body(either.getRight().get().getMessage());
+        }
 
         return ResponseEntity.ok().body(modelConvertor.convertValuteModelToRateModel(either.getLeft().get()));
     }
